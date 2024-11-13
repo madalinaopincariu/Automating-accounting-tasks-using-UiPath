@@ -1,0 +1,236 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UploadCheck" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="clientId" Type="InArgument(x:String)" />
+    <x:Property Name="checkNumber" Type="InArgument(x:String)" />
+    <x:Property Name="success" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1410.4,3276.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UploadCheck" sap:VirtualizedContainerService.HintSize="592,3212" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="emptyFormAppears" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="successAppears" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="529.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Uploading check...&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Upload Client Check" sap:VirtualizedContainerService.HintSize="529.6,2940.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="70a4aeb8-6665-48a3-8b97-574d89459986" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,2700.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Client ID" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="433.6,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Text="[clientId]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/checks/upload" CVScreenId="c1981de7-7141-4011-906d-4e17e89a3dea" CvElementArea="332, 585, 609, 48" CvType="InputBox" DesignTimeRectangle="334, 588, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT workitemID'" FullSelectorArgument="&lt;webctrl id='workitemID' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='workitemID' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="3a585b7f-2f23-4196-a4a1-f9a9a602cc79" InformativeScreenshot="43c072859f92a988c0ec1532a8800104.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Upload Client Check' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="c1981de7-7141-4011-906d-4e17e89a3dea" CvTextArea="331, 560, 153, 16" CvTextArgument="Client Request ID:" CvType="Text" DesignTimeRectangle="334, 557, 151, 25" ElementType="Text" FriendlyName="'Client Request ID'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Client Request ID:' check:innerText='Client Request ID:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Check Number" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="433.6,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Text="[checkNumber]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/checks/upload" CVScreenId="c1981de7-7141-4011-906d-4e17e89a3dea" CvElementArea="331, 678, 610, 46" CvType="InputBox" DesignTimeRectangle="334, 680, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT checkNumber'" FullSelectorArgument="&lt;webctrl id='checkNumber' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='checkNumber' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="821c3272-42d0-47d3-8e2c-3e026657e88c" InformativeScreenshot="cc10f6b138f9666b669796a6c61d8e45.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Upload Client Check' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="c1981de7-7141-4011-906d-4e17e89a3dea" CvTextArea="331, 651, 130, 16" CvTextArgument="Check Number:" CvType="Text" DesignTimeRectangle="334, 649, 129, 25" ElementType="Text" FriendlyName="'Check Number'" FullSelectorArgument="&lt;webctrl aaname='Check Number:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Check Number:' tag='LABEL' type='' class='' check:innerText='Check Number:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Select Check Copy File'" sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/checks/upload" CVScreenId="fb441ef9-fd5e-4963-b5e9-57b79ca372e8" CvElementArea="268, 803, 239, 50" CvTextArea="286, 820, 201, 17" CvTextArgument="Select Check Copy File" CvType="Button" DesignTimeRectangle="271, 793, 235, 46" DesignTimeScaleFactor="1.375" ElementType="Text" FriendlyName="'Select Check Copy File'" FullSelectorArgument="&lt;webctrl aaname='                                                  Select Check C*' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                                  Select Check C*' tag='LABEL' type='' class='btn btn-default' check:innerText='Select Check Copy File' /&gt;" Guid="85abeb23-8b2c-4931-9e0d-7804f24d377d" InformativeScreenshot="8c992659a4086f9c1190a4176a380a30.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Upload Client Check' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="fb441ef9-fd5e-4963-b5e9-57b79ca372e8" CvElementArea="268, 869, 210, 51" CvTextArea="286, 885, 174, 22" CvTextArgument="Upload Check Copy" CvType="Button" DesignTimeRectangle="271, 860, 206, 46" ElementType="Button" FriendlyName="'Upload Check Copy'" FullSelectorArgument="&lt;webctrl id='buttonUpload' tag='BUTTON' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl id='buttonUpload' tag='BUTTON' type='button' class='btn btn-primary' aaname='Upload Check Copy' check:innerText='Upload Check Copy' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts 'Address: C:\Users\ASUS\…'" sap:VirtualizedContainerService.HintSize="433.6,239.2" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Shortcuts="[d(hk)][k(F4)][u(hk)]" Version="V3">
+              <uix:NKeyboardShortcuts.Target>
+                <uix:TargetAnchorable CVScreenId="d713df90-c9d5-4530-8f45-552076b33376" CvTextArea="235, 61, 158, 15" CvTextArgument="Pictures Screenshots" CvType="Text" DesignTimeRectangle="190, 48, 389, 44" DesignTimeScaleFactor="1.25" ElementType="Toolbar" FriendlyName="'Address: C:\Users\ASUS\…'" FullSelectorArgument="&lt;wnd aaname='Loading' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Address: C:\Users\ASUS\Pictures\poze samsung a3' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Loading' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Address: C:\Users\ASUS\Pictures\poze samsung a3' /&gt;" Guid="07f4678b-9895-4c4b-9ae5-af6d76f9815c" ImageBase64="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" InformativeScreenshot="426f9e17c66ce9e9ec34f1a43214b036.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+              </uix:NKeyboardShortcuts.Target>
+            </uix:NKeyboardShortcuts>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into search bar" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="433.6,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="HardwareEvents" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Text="C:\Users\ASUS\Downloads" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="3e3bb305-f86f-4130-841c-808c19bced40" CvTextArea="234, 61, 296, 15" CvTextArgument="Docum... SQL Server Management Studio" CvType="Text" DesignTimeRectangle="190, 48, 389, 44" DesignTimeScaleFactor="1.25" ElementType="Toolbar" FriendlyName="'Address: C:\Users\ASUS\…'" FullSelectorArgument="&lt;wnd aaname='Loading' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Address: C:\Users\ASUS\Documents\SQL Server Management Studio' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Loading' cls='msctls_progress32' /&gt;&lt;wnd ctrlid='1001' title='Address: C:\Users\ASUS\Documents\SQL Server Management Studio' /&gt;" Guid="c100123c-8cac-43e0-a564-a146f9117b3d" ImageBase64="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" InformativeScreenshot="a26dfdf5f23c09adc01a0839e67a7ccb.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="3e3bb305-f86f-4130-841c-808c19bced40" CvTextArea="234, 61, 649, 18" CvTextArgument="Docum... SQL Server Management Studio Search SQL Server Manage..." CvType="Text" DesignTimeRectangle="9, 38, 942, 65" FriendlyName="'C:\Users\ASUS\Documents…'" FullSelectorArgument="&lt;wnd ctrlid='40965' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='40965' check:text='C:\Users\ASUS\Documents\SQL Server Management Studio' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="433.6,218.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'File &amp;name'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="433.6,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Text="[&quot;Check-Request-For-&quot; + checkNumber]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="5c9635c6-f3a4-4512-a609-81ef8b0ef92b" CvElementArea="228, 504, 454, 32" CvType="InputBox" DesignTimeRectangle="234, 511, 423, 20" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'Edit'" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;" Guid="c92d609c-a2d1-4cd4-8731-0f2ac209ac6a" InformativeScreenshot="a890577e3c227eb6c5bbf707b5d46778.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="5c9635c6-f3a4-4512-a609-81ef8b0ef92b" CvTextArea="155, 512, 68, 15" CvTextArgument="File name:" CvType="Text" DesignTimeRectangle="155, 512, 68, 15" ElementType="Text" FriendlyName="'File &amp;name'" FullSelectorArgument="&lt;wnd ctrlid='1090' title='File &amp;amp;name:' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;wnd ctrlid='1090' title='File &amp;amp;name:' check:text='File name:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="433.6,218.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Upload Check Copy'" sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="70a4aeb8-6665-48a3-8b97-574d89459986" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/checks/upload" CVScreenId="1b8318d9-d79c-4eef-a365-49d5eb53e26f" CvElementArea="268, 792, 209, 51" CvTextArea="286, 806, 174, 23" CvTextArgument="Upload Check Copy" CvType="Button" DesignTimeRectangle="271, 795, 206, 46" DesignTimeScaleFactor="1.375" ElementType="Button" FriendlyName="'Upload Check Copy'" FullSelectorArgument="&lt;webctrl id='buttonUpload' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='buttonUpload' tag='BUTTON' type='button' class='btn btn-primary' aaname='Upload Check Copy' check:innerText='Upload Check Copy' /&gt;" Guid="4124f61f-5056-45e2-b9ed-157dcf405b3c" InformativeScreenshot="d3d92fe9f170b77e1e71dd2b6c0f2b4a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Upload Client Check' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="1b8318d9-d79c-4eef-a365-49d5eb53e26f" CvElementArea="267, 725, 239, 50" CvTextArea="286, 741, 201, 17" CvTextArgument="Select Check Copy File" CvType="Button" DesignTimeRectangle="271, 728, 235, 46" ElementType="Text" FriendlyName="'Select Check Copy File'" FullSelectorArgument="&lt;webctrl aaname='                                                  Select Check C*' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                                  Select Check C*' tag='LABEL' type='' class='btn btn-default' check:innerText='Select Check Copy File' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="433.6,218.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" Shortcuts="[d(hk)][k(Esc)][u(hk)]" Version="V3" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,184" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Check uploaded successfully!&quot;]" />
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASJSURBVFhHvZdtbFNlFMePblYqvkYTRFyCLOrQhC9CjB80KCqaiCF80C+CRhIZClHJ3AsDt+6FjnbttIyXzRfI3NiYZIm46AcDm4XRN9a1XStu6waL2dgq2xhTTJZtj/9zy23vZltZafnwb/Pc3uf5/3ruec55LtEeZz90FRq/xWLPiwwgQipltYfHCRfWZg/lNXyMhQaac4LybYJ22ZOjfBbWZ4gyyXOEAcZJiwF+XHvM31jlubwx79fBzJw4Jc/NahnM3GkOisfZrYOZWuvw+ztODRRTCSJRJEV6NAjARJ/bxYamC2sAQFiEMCkuyXMBQDCXxGMAEAAIAKTa2wE/h8AfVwAUOcRL9f7tyQb42j2yPJUBCucC4MLrjb0fJQpgaHJm2crKzrbVDf4qHssAVc7LT0QFWJsgACHEQyllLkEfmgVtMYtdbUMnZACjbTg6wBvfhwHS9nur1Tq3EzvD+UpjrymSGWvFN7+bqeic416D25NS4tzMc1svXdtEm1sEVXgEfdKGjO8QMkC5LRAdYN3xMIBa77pGhdiWORax8khXIJI5a0mlV1CuRVAx7tW0H74OQOlfnRe07bSkpt5xzbwB7jN6LFSMrbLTJp6r7T4ZyZy17KBvStrbKDIPfOEpUADQ7paBDbnWwFMACOXAoVg5MAvA4LEpAFoimbMAMMP3MMBCvbtwDgABgIb/nr5NBqh2jSQPQFXWEQJYesAn1Hgsd+k6BPKpQgao8YwmGOCQb1oGUCsicI/RLegz5AZKsErn0skAdd7EA4QioATAvxa0G7Ufze1hU2ehDFCbaID0KACP8u5gANT9RV/GAXC/8YYBIj6CuADeVAAs2OuyS10LW2xVTfepSOasjGrfpASgxb2lTs1NASgrIZLIiwonKNsi1jT4f45kzko7EDZaaHDrbwrghaP+EMC7P/WfoE/PCso6K56t6xmMZM5K1SHb0copxypMzsBWGeCRfXEAPF8bBjjsG90ilVJuKngMXVcnH5trPiPECsqzcgmWttvFvyYXywCLTJ3zB3i5YRYAqcthnodF+OYCh8g/fek9vT2QUf/b2PLc1oFs4l5RgrnbzohnaruvAECaGysCNbEAXlO0YwZo/mNiK71zEhmO3zkfEGZVOULO4ywUGT5DsskHZjE2LV5VAqRxDvCjQR1YbPIW3FAEIgDQ28397bQDufAx2ipP4s7HB0xEhK+rNA6x8ZcBHQBICUBamGw/IyUxorRfBqj3zR+AmvsmVr3V1PfjgzqXuBu1PRX9fYnRM7Hphwvf9f8zpYJoLsCLR3uupO/rnHqyyidW1/mzZYAjnhjNKAYAAYAAQAAgABAACADE5lEACAAEAAJAqB0fdMYAwJEsdChNFsC3rpGMqAA4lK67BQB0Jx7jf4/lyOb1x/tKj50fW1phDzytt86WDjJAZZYhaWyIcM//qdL55+M66/D6VE5QJC+8JYDgqxkgUvDDAiTa7fjmMCVad0C0B+LaEXwdlF7NggN+V+PXJd5eTJcMyWvLnix89ECjUECS9vp3MjR7bXg6u/4FPqMYP5QOgtAAAAAASUVORK5CYII=" InformativeScreenshot="c03bdc8265f7c2c68c66cf8c652aef6b.jpg" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Upload Client Check' /&gt;" Title="ACME System 1 - Upload Client Check" Url="https://acme-test.uipath.com/checks/upload" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

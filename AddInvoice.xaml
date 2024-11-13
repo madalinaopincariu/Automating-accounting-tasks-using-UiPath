@@ -1,0 +1,311 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AddInvoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="invoiceNr" Type="InArgument(x:String)" />
+    <x:Property Name="taxId" Type="InArgument(x:String)" />
+    <x:Property Name="datee" Type="InArgument(x:String)" />
+    <x:Property Name="currency" Type="InArgument(x:String)" />
+    <x:Property Name="itemDescription" Type="InArgument(x:String)" />
+    <x:Property Name="untaxedPrice" Type="InArgument(x:String)" />
+    <x:Property Name="taxPrice" Type="InArgument(x:String)" />
+    <x:Property Name="totalPrice" Type="InArgument(x:String)" />
+    <x:Property Name="success" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1410.4,3830.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AddInvoice" sap:VirtualizedContainerService.HintSize="1203.2,3765.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="emptyFormPopUpAppears" />
+      <Variable x:TypeArguments="x:String" Name="message" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log message for start" sap:VirtualizedContainerService.HintSize="1140.8,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding invoice...&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Add Invoice Details" sap:VirtualizedContainerService.HintSize="1140.8,3494.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1107.2,3254.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Invoice Number'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[invoiceNr]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvElementArea="331, 598, 611, 48" CvType="InputBox" DesignTimeRectangle="334, 600, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT invoiceNumber'" FullSelectorArgument="&lt;webctrl id='invoiceNumber' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='invoiceNumber' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="8488bd0a-0c21-41aa-a617-bbc5c8a2692a" InformativeScreenshot="02604ea0b0fb93981703cb53666b8998.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvTextArea="331, 572, 139, 16" CvTextArgument="Invoice Number:" CvType="Text" DesignTimeRectangle="334, 569, 137, 25" ElementType="Text" FriendlyName="'Invoice Number'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Invoice Number:' check:innerText='Invoice Number:' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Vendor TaxID'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[taxId]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvElementArea="330, 691, 610, 46" CvType="InputBox" DesignTimeRectangle="334, 692, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT vendorTaxID'" FullSelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="5de5aa13-697b-4ee9-8378-5fa02f7930c4" InformativeScreenshot="1adf1cd00c0253182af11eb3daadd2e7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvTextArea="330, 663, 118, 17" CvTextArgument="Vendor TaxID:" CvType="Text" DesignTimeRectangle="334, 661, 116, 25" ElementType="Text" FriendlyName="'Vendor TaxID'" FullSelectorArgument="&lt;webctrl aaname='Vendor TaxID:' tag='LABEL' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Vendor TaxID:' tag='LABEL' type='' class='' check:innerText='Vendor TaxID:' /&gt;" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Date'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[datee]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvElementArea="330, 783, 610, 48" CvType="InputBox" DesignTimeRectangle="334, 785, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT invoiceDate'" FullSelectorArgument="&lt;webctrl id='invoiceDate' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='invoiceDate' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="00e9ff4d-aec5-4b40-8d32-52e923b884de" InformativeScreenshot="c6e11bca546ef148055676c081243d33.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvTextArea="331, 757, 45, 16" CvTextArgument="Date:" CvType="Text" DesignTimeRectangle="334, 754, 44, 25" ElementType="Text" FriendlyName="'Date'" FullSelectorArgument="&lt;webctrl aaname='Date:' tag='LABEL' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Date:' tag='LABEL' type='' class='' check:innerText='Date:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Currency'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[currency]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvElementArea="331, 876, 610, 47" CvType="InputBox" DesignTimeRectangle="334, 878, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT invoiceCurrency'" FullSelectorArgument="&lt;webctrl id='invoiceCurrency' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='invoiceCurrency' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="19b197ea-bbac-4bd4-9da0-6441233c137a" InformativeScreenshot="2034373b1d1909ea927c9827fa7da59b.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvTextArea="331, 850, 83, 20" CvTextArgument="Currency:" CvType="Text" DesignTimeRectangle="334, 846, 83, 25" ElementType="Text" FriendlyName="'Currency'" FullSelectorArgument="&lt;webctrl aaname='Currency:' tag='LABEL' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Currency:' tag='LABEL' type='' class='' check:innerText='Currency:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Item Description'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[itemDescription]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvElementArea="330, 968, 611, 48" CvType="InputBox" DesignTimeRectangle="334, 970, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT itemDescription'" FullSelectorArgument="&lt;webctrl id='itemDescription' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='itemDescription' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="a6fe0065-f92a-464a-82dc-7678c88b04c5" InformativeScreenshot="17795f20108e4653e6923b4056b1f3ea.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="824e0ae6-505b-4315-b78f-0c87e6544bd8" CvTextArea="331, 942, 144, 20" CvTextArgument="Item Description:" CvType="Text" DesignTimeRectangle="334, 939, 143, 25" ElementType="Text" FriendlyName="'Item Description'" FullSelectorArgument="&lt;webctrl aaname='Item Description:' tag='LABEL' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Item Description:' tag='LABEL' type='' class='' check:innerText='Item Description:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="1044.8,278.4" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
+              <uix:NMouseScroll.SearchedElement>
+                <uix:SearchedElement>
+                  <uix:SearchedElement.Target>
+                    <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="13235c6b-d35b-497c-8a2c-1bba67683a42" CvElementArea="331, 974, 185, 46" CvTextArea="346, 986, 154, 17" CvTextArgument="Add Invoice Details" CvType="Button" DesignTimeRectangle="334, 976, 182, 42" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Add Invoice Details'" FullSelectorArgument="&lt;webctrl id='buttonAddInvoice' tag='BUTTON' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl id='buttonAddInvoice' tag='BUTTON' type='button' class='btn btn-primary' aaname='Add Invoice Details' check:innerText='Add Invoice Details' /&gt;" Guid="0f996468-99fe-4d07-9284-acda4a3b6c2a" InformativeScreenshot="cec01adc1d1ff2c9ccfc301f355df377.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                  </uix:SearchedElement.Target>
+                  <uix:SearchedElement.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:SearchedElement.Timeout>
+                </uix:SearchedElement>
+              </uix:NMouseScroll.SearchedElement>
+            </uix:NMouseScroll>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Untaxed Amount'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[untaxedPrice]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="ab7e2e49-f5ef-4c47-92c8-57ab2fc06204" CvElementArea="331, 728, 609, 47" CvType="InputBox" DesignTimeRectangle="334, 720, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT unTaxedAmount'" FullSelectorArgument="&lt;webctrl id='unTaxedAmount' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='unTaxedAmount' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="5dcade6c-15be-4545-b7e3-398eaa10c9df" InformativeScreenshot="17367195bfd92bfe3a92f1f5b540ba9d.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="ab7e2e49-f5ef-4c47-92c8-57ab2fc06204" CvTextArea="333, 701, 144, 17" CvTextArgument="Untaxed Amount:" CvType="Text" DesignTimeRectangle="334, 688, 145, 25" ElementType="Text" FriendlyName="'Untaxed Amount'" FullSelectorArgument="&lt;webctrl aaname='Untaxed Amount:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Untaxed Amount:' tag='LABEL' type='' class='' check:innerText='Untaxed Amount:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Tax Amount'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[taxPrice]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvElementArea="331, 810, 609, 48" CvType="InputBox" DesignTimeRectangle="334, 812, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT taxedAmount'" FullSelectorArgument="&lt;webctrl id='taxedAmount' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='taxedAmount' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="1522c9da-f383-4b09-9a8d-71b7af4d0b0d" InformativeScreenshot="fe28356058869b1af36ff148feba4dc8.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvTextArea="333, 785, 104, 16" CvTextArgument="Tax Amount:" CvType="Text" DesignTimeRectangle="334, 781, 105, 25" ElementType="Text" FriendlyName="'Tax Amount'" FullSelectorArgument="&lt;webctrl aaname='Tax Amount:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Tax Amount:' tag='LABEL' type='' class='' check:innerText='Tax Amount:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Total Amount'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="1044.8,258.4" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Text="[totalPrice]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvElementArea="331, 903, 610, 47" CvType="InputBox" DesignTimeRectangle="334, 905, 606, 43" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT totalAmount'" FullSelectorArgument="&lt;webctrl id='totalAmount' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='totalAmount' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="6a587180-53ed-43c3-979a-51f2f7a129b2" InformativeScreenshot="c4003fb8865086adfee4a356ea8c8eb9.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvTextArea="333, 876, 115, 17" CvTextArgument="Total Amount:" CvType="Text" DesignTimeRectangle="334, 873, 117, 25" ElementType="Text" FriendlyName="'Total Amount'" FullSelectorArgument="&lt;webctrl aaname='Total Amount:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Total Amount:' tag='LABEL' type='' class='' check:innerText='Total Amount:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add Invoice Details'" sap:VirtualizedContainerService.HintSize="1044.8,197.6" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/invoices/add" CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvElementArea="331, 964, 185, 47" CvTextArea="346, 976, 154, 18" CvTextArgument="Add Invoice Details" CvType="Button" DesignTimeRectangle="334, 966, 182, 42" DesignTimeScaleFactor="1.25" ElementType="Button" FriendlyName="'Add Invoice Details'" FullSelectorArgument="&lt;webctrl id='buttonAddInvoice' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='buttonAddInvoice' tag='BUTTON' type='button' class='btn btn-primary' aaname='Add Invoice Details' check:innerText='Add Invoice Details' /&gt;" Guid="85003e79-2af5-4715-9394-10a213a666ef" InformativeScreenshot="a4ae54d5f50d8443e4956f9458cb85f0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="7ee6f790-b45e-48a4-9ced-aad9f7d94d78" CvTextArea="333, 876, 115, 17" CvTextArgument="Total Amount:" CvType="Text" DesignTimeRectangle="334, 873, 117, 25" ElementType="Text" FriendlyName="'Total Amount'" FullSelectorArgument="&lt;webctrl aaname='Total Amount:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Total Amount:' tag='LABEL' type='' class='' check:innerText='Total Amount:' /&gt;" SearchSteps="Selector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'pane'" sap:VirtualizedContainerService.HintSize="1044.8,624.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e15d9504-6689-4101-a66e-8e61d7f6a8b4" Timeout="3" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,381.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,184" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invoice added!&quot;]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="496,381.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,184" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Invoice not added!&quot;]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,107.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable Accuracy="1" CVScreenId="f8de19da-f7d4-4e00-ba67-92335f008742" CvElementArea="205, 66, 1456, 43" CvType="InputBox" DesignTimeRectangle="250, 72, 1329, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'acme-test.uipath.com/su…'" FullSelectorArgument="&lt;ctrl name='ACME System 1 - - Google Chrome' role='pane' /&gt;&lt;ctrl name='Address and search bar' role='editable text' /&gt;" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;ctrl name='ACME System 1 - - Google Chrome' role='pane' /&gt;&lt;ctrl name='Address and search bar' role='editable text' automationid='' check:text='acme-test.uipath.com/success' /&gt;" Guid="a982e76d-1c4c-4ab6-99e1-b05d2521e96e" ImageBase64="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" InformativeScreenshot="e0894868d434fa357e3c7eaa278d3761.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='ACME System 1 - - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target Accuracy="1" CVScreenId="f8de19da-f7d4-4e00-ba67-92335f008742" CvTextArea="246, 78, 1350, 21" CvTextArgument="acme-test.uipath.com/success o" CvType="Text" DesignTimeRectangle="9, 59, 1920, 58" FriendlyName="'pane'" FullSelectorArgument="&lt;ctrl name='ACME System 1 - - Google Chrome' role='pane' /&gt;&lt;ctrl idx='23' role='pane' /&gt;" FuzzySelectorArgument="&lt;ctrl name='ACME System 1 - - Google Chrome' role='pane' /&gt;&lt;ctrl automationid='' role='pane' /&gt;" ImageBase64="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" SearchSteps="Selector, FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="d1367cbee25a4d111474a70e19b80927.jpg" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Add Invoice Details' /&gt;" Title="ACME System 1 - Add Invoice Details" Url="https://acme-test.uipath.com/invoices/add" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
